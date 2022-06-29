@@ -140,46 +140,133 @@ public class LocatorExample extends Base{
 		$x("//form//select[@id='day']")
 		
 		
+		//Axes
+		//child
+		$x("//span[@class='_5k_4']/child::span")
+		
+		//parent
+		$x("//select[@id='month']/parent::span")
+		
+		//following-sibling
+		$x("//select[@id='day']/following-sibling::select[1]")//month
+		$x("//select[@id='day']/following-sibling::select[2]")//year
+		$x("//select[@id='month']/following-sibling::select[1]")//year
+		$x("//select[@id='day']/following-sibling::select[@id='year']")
+		$x("//select[@id='month']/following-sibling::select[@id='year']")
 		
 		
+		//following
+		$x("//input[@name='firstname']/following::select[2]")//month
+		$x("//input[@name='firstname']/following::select[@id='month']")
+		$x("//select[@id='day']/following::select[2]")//year
 		
+		//preceding-sibling
+		$x("//select[@id='year']/preceding-sibling::select[1]")//month
+		$x("//select[@id='year']/preceding-sibling::select[2]")//day
+		$x("//select[@id='year']/preceding-sibling::select[@id='day']")//day
 		
+		//preceding
+		$x("//select[@id='year']/preceding::select[1]")//month
+		$x("//select[@id='year']/preceding::select[2]")//day
+		$x("//select[@id='year']/preceding::select[@id='day']")//day
+		$x("//select[@id='year']/preceding::input[@name='firstname']")
 		
+		//ancestor
+		$x("//select[@id='year']/ancestor::form")
+		$x("//select[@id='year']/ancestor::body//select[@id='month']")
+		$x("//select[@id='year']/ancestor::body//input[@name='firstname']")
 		
+		//descendant
+		$x("//body/descendant::select[1]")
+		$x("//body/descendant::select[@id='day']")
+		$x("//body/descendant::select[@id='day']")
+		$x("//body/descendant::form//select[@id='day']")
 		
-		
-		
-		
-		
-		
+	
 		//css
 //		driver.findElement(By.cssSelector("#email")).sendKeys("from css");
 		
+		//css ==> css id -> #
+		$$("#email")
+		
+		//css ==> css classname -> .
+		$$(".inputtext")
+		$$("._55r1")
+		$$("._6luy")
+		$$(".inputtext._55r1")
+		$$("._55r1._6luy")
+		$$(".inputtext._6luy")
+		$$(".inputtext._55r1._6luy")
+		
+		//css ==> id and class
+		$$("#email.inputtext")
+		$$("#email._55r1")
+		$$("#email._6luy")
+		$$("#email.inputtext._55r1")
+		$$("#email.inputtext._6luy")
+		$$("#email._55r1._6luy")
+		$$("#email.inputtext._55r1._6luy")
+		$$(".inputtext#email._55r1._6luy")
+		$$(".inputtext._55r1#email._6luy")
+		$$(".inputtext._55r1._6luy#email")
+		
+		//css ==> html tagname
+		$$("button")
+		
+		//css ==> html attribute
+		$$("[id='email']")
+		
+		//css ==> html tagname + html attribute
+		$$("input[id='email']")
+		
+		//css ==> css(id & attr) + html(tagname + attribute)
+		
+		$$("input#email")
+		$$("input.inputtext")
+		$$("input._55r1")
+		$$("input._6luy")
+		$$("input.inputtext._55r1")
+		$$("input.inputtext._6luy")
+		$$("input._55r1._6luy")		
+		$$("input.inputtext._55r1._6luy")
+		$$("input[id='email']#email")
+		$$("input[id='email'].inputtext._55r1._6luy")
+		$$("input[id='email']#email.inputtext")
+		$$("input[id='email']#email.inputtext._55r1._6luy")
+		
+		//css ==> Substring for html attribute
+		//prefix or starts with ==> ^
+		$$("input[id^='email']")
+		$$("input[id^='emai']")
+		$$("input[id^='ema']")
+		$$("input[id^='em']")
+		$$("input[id^='e']")
 		
 		
+		//suffix or ends with ==> $
+		$$("input[id$='email']")
+		$$("input[id$='mail']")
+		$$("input[id$='ail']")
+		$$("input[id$='il']")
+		$$("input[id$='l']")
 		
+		//contains or substring ==> *
+		$$("input[id*='email']")
+		$$("input[id*='emai']")
+		$$("input[id*='ema']")
+		$$("input[id*='em']")
+		$$("input[id*='e']")
 		
+		$$("input[id*='mail']")
+		$$("input[id*='ail']")
+		$$("input[id*='il']")
+		$$("input[id*='l']")
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		$$("input[id*='mai']")
+		$$("input[id*='ai']")
+		$$("input[id*='ma']")
+		$$("input[id*='i']")
+		$$("input[id*='m']")
 		
 		
 	}
