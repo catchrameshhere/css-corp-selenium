@@ -10,6 +10,8 @@ public class WebElementCommandsExample extends Base{
 		WebElement instaLink = driver.findElement(By.partialLinkText("Instagram"));
 		WebElement welMsg = driver.findElement(By.xpath("//h2[@class='_8eso']"));
 		WebElement loginBtn = driver.findElement(By.tagName("button"));
+		driver.findelement(by.id("email")])
+
 
 
 		//get attr

@@ -1,5 +1,7 @@
 package basic;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -37,6 +39,18 @@ public class Base {
 			System.exit(0);
 		}
 		 
+		//implicit wait
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		//page load timeout ==> pom
+//		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+		
+		//script load timeout
+		driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(1));
+		
+		//maximize the window
+//		driver.manage().window().maximize();
+		
 		//open url
 		if(url!="")
 			driver.get(url);
